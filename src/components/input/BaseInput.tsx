@@ -3,13 +3,15 @@ import EyeOffIcon from "../icons/EyeOff.svg";
 import {useState} from "react";
 import classNames from "classnames";
 
-
-export const BaseInput = ({ icon, error, caption }: { icon: boolean; error: boolean; caption: boolean }) => {
+export type BaseInputProps = { icon?: boolean; error?: boolean; caption: string;
+    label?: string; placeholder?: string;
+}
+export const BaseInput = ({ icon, error, caption, label, placeholder }: BaseInputProps) => {
     const [type, setType] = useState('password')
     const Icon = type === 'text' ? EyeIcon : EyeOffIcon
     return (
         <div >
-            <label className={'font-medium'}>Label</label>
+            { label && <label className={'font-medium'}>{label}</label>}
                 <div className={`grid grid-rows-1 grid-cols-[auto_40px] my-2.5 w-[327px]`}>
                     <input
                         type={type}
@@ -29,7 +31,7 @@ export const BaseInput = ({ icon, error, caption }: { icon: boolean; error: bool
                             ['pr-10']: icon
                         })
                         }
-                        placeholder={'Value'}
+                        placeholder={placeholder && ''}
                     />
                     {icon && <Icon className={`
                         col-start-2 col-end-2
@@ -43,7 +45,7 @@ export const BaseInput = ({ icon, error, caption }: { icon: boolean; error: bool
             { caption && <div className={classNames('font-normal',{
                 ['text-[#F87171]']: error,
                 ['text-[#94A3B8]']: !error
-            })}>Caption</div>}
+            })}>{caption}</div>}
         </div>
     )
 }

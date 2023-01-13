@@ -15,7 +15,7 @@ const Layout = () => (
         <Eye />
         <EyeOff />
         <Trash />
-        <BaseInput icon={true} error={false} caption={true}/>
+        <BaseInput icon={true} error={false} caption="Caption Error!" label="Label"/>
         <Button>Label</Button>
         <RadioGroup />
     </div>
