@@ -59,13 +59,16 @@ function AddEdit(props: { user: any; }) {
             `}>
                 <h3>Customers</h3>
                 <table>
-                    <tr>
+                    <thead>
+                        <tr>
                         <th>Name</th>
                         <td>Company</td>
                         <td>Email</td>
                         <td>Admin</td>
                         <td>Action</td>
                     </tr>
+                    </thead>
+                    <tbody>
                     {userList.map(({ name, company, email, admin }) => (
                         <tr key={email}>
                             <td>{name}</td>
@@ -75,6 +78,7 @@ function AddEdit(props: { user: any; }) {
                             <td><Edit /><Trash /></td>
                         </tr>
                         ))}
+                    </tbody>
                 </table>
             </div>
         </div>
