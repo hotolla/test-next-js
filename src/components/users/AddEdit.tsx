@@ -55,19 +55,27 @@ function AddEdit(props: { user: any; }) {
                 <BaseInput caption="8+ characters" label="Password" icon={true}/>
                 <Button >Save</Button>
             </div>
-            <div>
+            <div className={`flex flex-col items-start p-[40px]
+            `}>
                 <h3>Customers</h3>
-                <ul>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td>Company</td>
+                        <td>Email</td>
+                        <td>Admin</td>
+                        <td>Action</td>
+                    </tr>
                     {userList.map(({ name, company, email, admin }) => (
-                        <li key={email}>
-                            <span>{name}</span>
-                            <span>{company}</span>
-                            <span>{email}</span>
-                            <span>{admin ? 'admi' : 'user'}</span>
-                            <span><Edit /><Trash /></span>
-                        </li>
+                        <tr key={email}>
+                            <td>{name}</td>
+                            <td>{company}</td>
+                            <td>{email}</td>
+                            <td>{admin ? 'admi' : 'user'}</td>
+                            <td><Edit /><Trash /></td>
+                        </tr>
                         ))}
-                </ul>
+                </table>
             </div>
         </div>
     );
