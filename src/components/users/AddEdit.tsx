@@ -59,13 +59,13 @@ function AddEdit(props: { user: any; }) {
                 <h3>Customers</h3>
                 <ul>
                     {userList.map(({ name, company, email, admin }) => (
-                        <div>
+                        <li key={email}>
                             <span>{name}</span>
                             <span>{company}</span>
                             <span>{email}</span>
                             <span>{admin ? 'admi' : 'user'}</span>
                             <span><Edit /><Trash /></span>
-                        </div>
+                        </li>
                         ))}
                 </ul>
             </div>
