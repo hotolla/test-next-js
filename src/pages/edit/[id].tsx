@@ -10,6 +10,6 @@ export async function getServerSideProps({ params }: any) {
     const user = await userService.getById(params.id);
 
     return {
-        props: { user }
+        props: { initialProps: { user } }
     }
 }
