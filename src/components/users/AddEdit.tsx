@@ -57,8 +57,9 @@ function AddEdit(props: { initialProps?: { user: unknown }}) {
 
 
     return (
-        <div>
-            <div>
+        <div className={`flex flex-row items-start`}>
+            <div className={`flex flex-col items-start p-[40px]
+            `}>
                 <h3>Add Customer</h3>
                 <div>user::{JSON.stringify(user)}</div>
                 <div>initial user::{JSON.stringify(initialUser)}</div>
@@ -70,18 +71,17 @@ function AddEdit(props: { initialProps?: { user: unknown }}) {
                 <BaseInput caption="8+ characters" label="Password" icon={true}/>
                 <Button >Save</Button>
             </div>
-            <div className={`flex flex-col items-start p-[40px]
-            `}>
+            <div className={`flex flex-col items-start p-[40px]`}>
                 <h3>Customers</h3>
-                <table>
+                <table className={`text-left mt-20`}>
                     <thead>
-                        <tr>
-                        <th>Name</th>
-                        <td>Company</td>
-                        <td>Email</td>
-                        <td>Admin</td>
-                        <td>Action</td>
-                    </tr>
+                        <tr className={'text-tabGray text-left'}>
+                            <th className={`text-left w-[307px] pr-[24px]`}>Name</th>
+                            <td className={`text-left w-[307px] pr-[24px]`}>Company</td>
+                            <td className={`text-left w-[307px] pr-[24px]`}>Email</td>
+                            <td className={`text-left pr-[24px]`}>Admin</td>
+                            <td className={`text-left`}>Action</td>
+                        </tr>
                     </thead>
                     <tbody>
                     {userList.map(({ name, company, email, admin }, ind) => (
@@ -90,7 +90,7 @@ function AddEdit(props: { initialProps?: { user: unknown }}) {
                             <td>{company}</td>
                             <td>{email}</td>
                             <td>{admin ? 'admi' : 'user'}</td>
-                            <td><Edit onClick={() => setUser(ind)}/><Trash /></td>
+                            <td><Edit className={`inline-block`} onClick={() => setUser(ind)}/><Trash className={`inline-block`} /></td>
                         </tr>
                         ))}
                     </tbody>

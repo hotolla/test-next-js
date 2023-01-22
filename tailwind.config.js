@@ -10,7 +10,11 @@ module.exports = {
     fontSize: {
       middle: '24px'
     },
-    extend: {},
+    extend: {
+      colors: {
+        'tabGray': '#94A3B8',
+      },
+    },
   },
   plugins: [plugin(function({ addBase, config }) {
     addBase({
